@@ -1,10 +1,17 @@
 // document.querySelector("button").addEventListener('click', clickHandler);
 
 function clickHandler() {
-  alert('I got clicked');
+
+
+  let audioSound = new Audio('sounds/crash.mp3');
+  audioSound.play();
 }
+
+
 for(let i=0; i < document.querySelectorAll(".drum").length ; i++) {
-  document.querySelectorAll(".drum")[i].addEventListener('click', clickHandler);
+  document.querySelectorAll(".drum")[i].addEventListener('click',  function() {
+    this.style.color = "white";
+  })
 }
 
 
