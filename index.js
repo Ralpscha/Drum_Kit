@@ -1,3 +1,10 @@
+function soundHandler(geluid) {
+  let drumGeluid = new Audio(geluid);
+  drumGeluid.play();
+}
+
+
+
 
 for(let i=0; i < document.querySelectorAll(".drum").length ; i++) {
   document.querySelectorAll(".drum")[i].addEventListener('click', function () {
@@ -6,12 +13,10 @@ for(let i=0; i < document.querySelectorAll(".drum").length ; i++) {
 
     switch (buttonInnerHTML) {
       case "w":
-        let crash = new Audio('sounds/crash.mp3');
-         crash.play();
+        soundHandler('sounds/crash.mp3');
          break;
       case "a":
-        let kick = new Audio('sounds/kick-bass.mp3');
-        kick.play();
+        soundHandler('sounds/kick-bass.mp3');
         break;
       case "s":
         let snare = new Audio('sounds/snare.mp3');
