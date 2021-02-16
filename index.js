@@ -4,20 +4,22 @@ function soundHandler(geluid) {
 }
 
 document.addEventListener('keypress', function(event) {
-  playSound(event.key);
+  makeSound(event.key);
+  buttonAnimation(event.key);
 })
 
 
 for(let i=0; i < document.querySelectorAll(".drum").length ; i++) {
   document.querySelectorAll(".drum")[i].addEventListener('click', function () {
-
     let buttonInnerHTML = this.innerHTML;
-    playSound(buttonInnerHTML);
+
+    makeSound(buttonInnerHTML);
+    buttonAnimation(buttonInnerHTML);
 })
 }
 
 
-function playSound(key) {
+function makeSound(key) {
   switch (key) {
     case "w":
       soundHandler('sounds/crash.mp3');
@@ -50,3 +52,11 @@ function playSound(key) {
   }
 }
 
+function buttonAnimation(currentKey) {
+  let activeButton = document.querySelector("." + currentKey);
+  activeButton.classList.toggle("pressed");
+
+  setTimeout(function () {
+    activeButton.classList.toggle("pressed");
+  },200);
+}
